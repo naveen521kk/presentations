@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>Introduction to Git</title>
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/dracula.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/highlightjs/highlight.js@main/src/styles/base16/dracula.min.css"
+    />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h2>Introduction to Git</h2>
+        </section>
+        <section>
+          <h3>What is Git?</h3>
+          <p class="fragment fade-in">
+            Git is a <em>distributed</em> version control system that allows you
+            to track changes to files and collaborate with others.
+          </p>
+          <aside class="notes">
+            Ask about what's a version control system (VCS) and why it's useful.
+          </aside>
+        </section>
+        <section>
+          <h3>What is a version control system (VCS)?</h3>
+          <p class="fragment fade-in">
+            A version control system is a tool that allows you to track changes
+            to files and collaborate with others.
+          </p>
+          <aside class="notes">
+            Go ahead and tell about creating various versions of a file and
+            keeping track of them. Tell about how it's useful to have a system
+            that tracks changes to our project files over time.
+          </aside>
+        </section>
+        <section>
+          <section>
+            <h3>Setup Instructions</h3>
+            <p class="fragment fade-in">
+              Git is available on most operating systems. You can download it
+              from
+              <a href="https://git-scm.com/downloads">git-scm.com/downloads</a>.
+            </p>
+            <p class="fragment fade-in">
+              You can also install it using a package manager, if you are using
+              one. For example, on Ubuntu:
+            </p>
+            <p class="fragment fade-in">
+              <code>sudo apt install git</code>
+            </p>
+            <aside class="notes">Ask people to install it side by side.</aside>
+          </section>
+          <section>
+            <h3>Checking install</h3>
+            <p class="fragment fade-in">
+              You can check if git is installed by running the following command
+              in your terminal:
+            </p>
+            <p class="fragment fade-in">
+              <code>git --version</code>
+            </p>
+            <img
+              src="assets/git-version-command.png"
+              class="fragment fade-in"
+            />
+          </section>
+          <section>
+            <h3>Configuring Git</h3>
+            <p class="fragment fade-in">
+              Git needs to know who you are before you can start using it. You
+              can configure your name and email address using the following
+              commands:
+            </p>
+            <pre class="fragment fade-in bash">
+              <code data-trim data-noescape>
+                $ git config --global user.name "Your Name"
+                $ git config --global user.email "your@email.com"
+            </code>
+            </pre>
+            <img
+              src="assets/git-config-name-email.png"
+              class="fragment fade-in"
+            />
+            <aside class="notes">
+              create account for people who don't have one.
+              Ask people to configure their name and email address. Tell them
+              that this is important because git will use this information to
+              track who made changes to the files.
+            </aside>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>Repositories</h3>
+            <p class="fragment fade-in">
+              A Git repository is a container for a project that is tracked by
+              Git. Treat it like a folder that contains all the files for your
+              project and a hidden folder that contains all the information
+              about the project.
+            </p>
+            <aside class="notes">
+              Tell about how git stores all the information about your project
+              in a hidden folder called .git. Tell about how git stores all the
+              files for your project in the folder that you are currently in.
+            </aside>
+          </section>
+          <section>
+            <h3>Types of Repositories</h3>
+            <p class="fragment fade-in">
+              There are two types of repositories:
+            </p>
+            <ul class="fragment fade-in">
+              <li>Local</li>
+              <li>Remote</li>
+            </ul>
+            <aside class="notes">
+              Tell about local repositories and how they are stored on your
+              computer. Tell about remote repositories and how they are stored
+              on a remote server.
+            </aside>
+          </section>
+        </section>
+        <section>
+          <h3>Some Basic Commands</h3>
+          <p class="fragment fade-in">
+            Some of the basic linux commands that you will need to know 
+            to use:
+          </p>
+          <pre class="fragment fade-in bash">
+              <code data-trim data-noescape>
+                  $ pwd
+                  $ ls
+                  $ cd
+                  $ mkdir
+                  $ mv
+              </code>
+              </pre>
+          <aside class="notes">
+            Ask people to create a new folder and initialize a git repository
+            in it.
+            Explain what the command does.
+        </section>
+        <section>
+          <section>
+            <h2>Git Basic Workflow</h2>
+          </section>
+          <section>
+              <h3>Initializing a repository</h3>
+              <p class="fragment fade-in">
+                You can create a new repository by running the following command
+                in your terminal:
+              </p>
+              <pre class="fragment fade-in bash">
+                  <code data-trim data-noescape>
+                      $ git init
+                  </code>
+                  </pre>
+              <img src="assets/git-init-command.png" class="fragment fade-in" />
+              <aside class="notes">
+                Ask people to create a new folder and initialize a git repository
+                in it.
+                Explain what the command does.
+              </aside>
+            </section>
+            <section>
+              <h2>Making First Changes</h2>
+              <aside class="notes">
+                create a file and make some changes to it.
+              </aside>
+            </section>
+            <section>
+              <h3>Checking Status</h3>
+              <p class="fragment fade-in">
+                To check the changes that you have made to your files, and the 
+                overall changes to your repository, you can run the following command:
+              </p>
+              <pre class="fragment fade-in bash">
+                  <code data-trim data-noescape>
+                      $ git status
+                      $ git diff
+                  </code>
+                  </pre>
+              <aside class="notes">
+                run the commands separately and explain what they do.
+              </aside>
+            </section>
+            <section>
+              <h3>Staging Changing</h3>
+              <p class="fragment fade-in">
+                To stage changes to your files, you can run the following command:
+              </p>
+              <pre class="fragment fade-in bash">
+                  <code data-trim data-noescape>
+                      $ git add &lt;file-name&gt;
+                  </code>
+                  </pre>
+              <aside class="notes">
+                explain about staging area
+                analogy shopping cart
+                wait for people to try it out 
+              </aside>
+            </section>
+            <section>
+              <h3>Commiting Changes</h3>
+              <p class="fragment fade-in">
+                You can make a checkpoint of your stagged changes by commmitng them.
+                You can do this by running the following command:  
+              </p>
+              <pre class="fragment fade-in bash">
+                  <code data-trim data-noescape>
+                      $ git commit -m "commit message"
+                  </code>
+                  </pre>
+              <aside class="notes">
+                explain about commiting changes
+                analogy taking a picture
+                explain what the message is
+                wait for people to try it out
+              </aside>
+            </section>
+            <section>
+              <h2>Try making changes to the file and commiting it</h2>
+              <aside class="notes">
+                make more commits for next section
+              </aside>
+            </section>
+          </section>
+          <section>
+            <section>
+              <h2>Git History</h2>
+            </section>
+            <section>
+              <h3>Git Log</h3>
+              <p class="fragment fade-in">
+                You can view the history of your repository by running the following command:
+              </p>
+              <pre class="fragment fade-in bash">
+                  <code data-trim data-noescape>
+                      $ git log
+                  </code>
+                  </pre>
+              <p class="fragment fade-in">
+                It will show you the commit history of your repository.
+              </p> 
+              <aside class="notes">
+                show them the git log
+                explain the commit hash
+              </aside>
+            </section>
+            <section>
+              <h3>Removing Stages</h3>
+              <p class="fragment fade-in">
+                You can remove a file from the staging area by running the following command:
+              </p>
+              <pre class="fragment fade-in bash">
+                  <code data-trim data-noescape>
+                      $ git reset &lt;file-name&gt;
+                  </code>
+                  </pre>
+              <aside class="notes">
+                reset only removes the file from the staging area
+              </aside>
+            </section>
+            <section>
+              <h3>Undoing Commits</h3>
+              <p class="fragment fade-in">
+                  You can use the commit hash to undo a commit
+              </p>
+              <pre class="fragment fade-in bash">
+                  <code data-trim data-noescape>
+                      $ git revert &lt;commit-hash&gt;
+                  </code>
+                  </pre>
+              <aside class="notes">
+                revert creates a new commit that undoes the changes made by the commit
+                the changes made by the commit are still there in the history
+              </aside>
+            </section>
+            <section>
+              <h3>Stashing</h3>
+              <p class="fragment fade-in">
+                When you want to switch to a different branch, but you have some
+                changes that you don't want to commit, you can stash them.
+              </p>
+              <pre class="fragment fade-in bash">
+                  <code data-trim data-noescape>
+                      $ git stash
+                      $ git stash list
+                  </code>
+                  </pre>
+              <p class="fragment fade-in">
+                You can get back the changes that you stashed by running the following command:
+              </p>
+              <pre class="fragment fade-in bash">
+                  <code data-trim data-noescape>
+                      $ git stash pop
+                  </code>
+                  </pre>
+              <aside class="notes">
+                analogy putting something in a box and taking it out later
+                also clear stash
+              </aside>
+            </section>
+          </section>
+          <section>
+            <section>
+              <h2>Starting with GitHub</h2>
+              <aside class="notes">
+                create a github account and a repository
+              </aside>
+            </section>
+            <section>
+              <h3>Install GitHub Desktop Client</h3>
+              <p class="fragment fade-in">
+                You can download the GitHub Desktop Client from
+                <a href="https://desktop.github.com/">desktop.github.com</a>.
+              </p>
+              <aside class="notes">
+                Let them install it and create a repository
+              </aside>
+            </section>
+            <section>
+              <h3>Working With Remote Repositories</h3>
+              <p class="fragment fade-in">
+                You can a remote repository in your github account and push your
+                local repository to it after you have made some commits.
+              </p>
+              <pre class="fragment fade-in bash">
+                  <code data-trim data-noescape>
+                      $ git remote add origin &lt;repository-url&gt;
+                      $ git push -u origin main
+                  </code>
+                  </pre>
+              <aside class="notes">
+                origin - name of the remote
+                main - name of the branch
+                demonstrate using both
+              </aside>
+              <p class="fragment fade-in">
+                You can pull changes from a remote repository by running the
+                following command:
+              </p>
+              <pre class="fragment fade-in bash">
+                  <code data-trim data-noescape>
+                      $ git pull origin main
+                  </code>
+                  </pre>
+              <aside class="notes">
+                say the origin and main is defaulted from the previous command
+              </aside>
+            </section>
+            <section>
+              <h3>Branches</h3>
+              <p class="fragment fade-in">
+                Branches are used to work on different versions of a repository
+                at the same time. The default branch is called the main branch.
+              </p>
+              <p class="fragment fade-in">
+                You can create a new branch by running the following command:
+              </p>
+              <pre class="fragment fade-in bash">
+                  <code data-trim data-noescape>
+                      $ git branch &lt;branch-name&gt;
+                  </code>
+                  </pre>
+              <aside class="notes">
+                explain what a HEAD is
+                use the github desktop client to create a new branch
+                cover the concept of merging here
+                donot go into merge conflicts
+                go <a href="https://learngitbranching.js.org/">here</a> to explain branch
+              </aside>
+            </section>
+            <section>
+              <h3>Working with Existing Projects</h3>
+              <p class="fragment fade-in">
+                You may not always be starting a project from scratch. You may
+                want to work on an existing project. You can do this by cloning
+                the repository.
+              </p>
+              <pre class="fragment fade-in bash">
+                  <code data-trim data-noescape>
+                      $ git clone &lt;repository-url&gt;
+                  </code>
+                  </pre>
+              <aside class="notes">
+                show using github desktop client and using the command line
+                cloning creates a copy of the repository on your computer with commit history
+              </aside>
+            </section>
+            <section>
+              <h2>Forking and Pull Requests</h2>
+              <aside class="notes">
+                I'll just go with the flow of what you are doing
+                use the github desktop client to fork a repository
+            </section>
+          </section>
+          <section>
+            <h3>What's Next</h3>
+            <p class="fragment fade-in">
+              There are a lot of things that we didn't cover in this workshop.
+              Here are some of the things that you can learn next:
+            </p>
+            <pre class="fragment fade-in bash">
+                <code data-trim data-noescape>
+                    $ git merge
+                    $ git rebase
+                    $ git cherry-pick
+                    $ git reflog
+                </code>
+                </pre>
+            <aside class="notes">
+              Tell them about how to find new projects and contribute to them.
+              open sourse
+              portfolio
+              connections
+            </aside>
+          </section>
+        </section>
+        <section>
+          <h2>Thank You</h2>
+          <aside class="notes">
+            Finally
+        </section>
+
+          <!-- Bonus: talk about Git and Github -->
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+        markdown: {
+          smartypants: true,
+        },
+      });
+    </script>
+  </body>
+</html>
