@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>Healthy Pet Animals Count</title>
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/dracula.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/highlightjs/highlight.js@main/src/styles/base16/dracula.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h2>Healthy Pet Animals Count</h2>
+        </section>
+        <section>
+          <section>
+            <h3>Problem Statement</h3>
+            <pre><code data-trim class="language-text">
+              There are N pet animals arranged in R rows and C columns. The
+              cells which contain pet animals are marked with the value 1. There
+              are certain pet animals infected by a contagious disease and they
+              are marked by -1 (that is instead of 1, they will be denoted by
+              -1). The disease will spread to any adjacent animals (left, right,
+              top, bottom, top-left, top-right, bottom-left, bottom-right)
+              infecting them too. The program must print the final count H of
+              pet animals which are not infected.
+            </code>
+            </pre>
+          </section>
+          <section>
+            <h4>Input Format</h4>
+            <p>
+              The first line contains R and C separated by a space. The next R
+              lines, each containing C columns indicating the details.
+            </p>
+          </section>
+          <section>
+            <h4>Example</h4>
+            <p>
+              <b>Input:</b><br />
+              1 0 1 0 -1 <br />
+              1 0 0 0 1<br />
+              0 0 1 1 0<br />
+              1 0 1 0 0 <br />
+              <b>Output:</b>
+              <br />
+              4
+            </p>
+          </section>
+          <section>
+            <h4>Explanation</h4>
+            <img src="example.svg" alt="" height="400" />
+            <p>
+              <b>Blue:</b> Healthy<br />
+              <b>Red:</b> Infected<br />
+            </p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>Code</h3>
+            <p>Using <b>DFS</b> algorithm.</p>
+            <pre
+              class="fragment fade-in"
+            ><code data-trim data-noescape data-line-numbers class="language-python"><script type="text/template">
+r, c = map(int, input().split())
+
+adj = []
+healthy = 0
+
+for i in range(r):
+    adj.append(list(map(int, input().split())))
+
+for i in range(r):
+    for j in range(c):
+        if adj[i][j] == 1:
+            healthy += 1
+
+
+def dfs(x, y):
+    global healthy
+    if not (x >= 0 and y >= 0 and x < r and y < c and adj[x][y] != 0):
+        return
+    if adj[x][y] == 1:
+        healthy -= 1
+
+    adj[x][y] = 0
+
+    dfs(x - 1, y - 1)
+    dfs(x - 1, y)
+    dfs(x - 1, y + 1)
+    dfs(x, y + 1)
+    dfs(x, y - 1)
+    dfs(x + 1, y - 1)
+    dfs(x + 1, y)
+    dfs(x + 1, y + 1)
+
+
+for i in range(r):
+    for j in range(c):
+        if adj[i][j] == -1:
+            dfs(i, j)
+
+print(healthy)
+              
+</script></code></pre>
+          </section>
+
+          <section>
+            <h3>Explanation</h3>
+            <pre
+              class="fragment fade-in"
+            ><code data-trim data-noescape data-line-numbers="1-7|9-12|15|17-19|20-21|23|25-32|35-38" class="language-python"><script type="text/template">
+r, c = map(int, input().split())
+
+adj = []
+healthy = 0
+
+for i in range(r):
+    adj.append(list(map(int, input().split())))
+
+for i in range(r):
+    for j in range(c):
+        if adj[i][j] == 1:
+            healthy += 1
+
+
+def dfs(x, y):
+    global healthy
+    if not (x >= 0 and y >= 0 and x < r and y < c
+        and adj[x][y] != 0):
+        return
+    if adj[x][y] == 1:
+        healthy -= 1
+
+    adj[x][y] = 0
+
+    dfs(x - 1, y - 1)
+    dfs(x - 1, y)
+    dfs(x - 1, y + 1)
+    dfs(x, y + 1)
+    dfs(x, y - 1)
+    dfs(x + 1, y - 1)
+    dfs(x + 1, y)
+    dfs(x + 1, y + 1)
+
+
+for i in range(r):
+    for j in range(c):
+        if adj[i][j] == -1:
+            dfs(i, j)
+
+print(healthy)
+              
+</script></code></pre>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+        markdown: {
+          smartypants: true,
+        },
+      });
+    </script>
+  </body>
+</html>
