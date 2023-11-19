@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>Stacks</title>
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/dracula.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/highlightjs/highlight.js@main/src/styles/base16/dracula.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>Stacks</h1>
+          <hr />
+          <p>By Naveen<br /></p>
+        </section>
+        <section>
+          <section>
+            <h2>What is a stack?</h2>
+            <p>
+              A stack is called a <b>last-in-first-out (LIFO)</b> collection.
+              This means that the last thing we added (pushed) is the first
+              thing that gets pulled (popped) off.
+            </p>
+          </section>
+          <section>
+            <h2>Examples of stack</h2>
+            <img src="stack-examples.jpg" alt="stack example" />
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Stack operations</h2>
+            <ul>
+              <li>push - add an item to the top of the stack</li>
+              <li>pop - remove an item from the top of the stack</li>
+              <li>peek - look at the top item in the stack</li>
+            </ul>
+            <p><b>push</b> and <b>pop</b> are the most common operations</p>
+          </section>
+          <section>
+            <h2>Algorithm for push</h2>
+            <p>
+              <code>push(item)</code>
+            </p>
+            <ol>
+              <li>add <em>item</em> to the top of the stack</li>
+              <li>
+                <b>Precondition:</b> Stack has been initialized and is not full.
+              </li>
+              <li>
+                <b>Postcondition:</b> Stack has one more item and
+                <em>item</em> is at the top
+              </li>
+            </ol>
+            <p><code>push(item)</code> is <b>O(1)</b></p>
+          </section>
+          <section>
+            <h2>Algorithm for pop</h2>
+            <p>
+              <code>pop()</code>
+            </p>
+            <ol>
+              <li>Removes <em>item</em> from stack and returns it in item.</li>
+              <li>
+                <b>Precondition:</b> Stack has been initialized and is not
+                empty.
+              </li>
+              <li>
+                <b>Postcondition:</b> Stack has one less item and <em>item</em>
+                is no longer in the stack.
+              </li>
+            </ol>
+            <p><code>pop()</code> is <b>O(1)</b></p>
+          </section>
+          <section>
+            <h2>Stack operations</h2>
+            <img src="stack-operations.jpg" alt="stack operations" />
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Implementing a Stack</h2>
+            <p>There are two ways we can implement a stack:</p>
+            <ul>
+              <li>Using an array</li>
+              <li>Using a linked list</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Implementing a Stack</h2>
+            <p>Implementing a stack using an array</p>
+            <ul>
+              <li>The bottom of the stack is at <code>data[0]</code></li>
+              <li>The top of the stack is at <code>data[numItems-1]</code></li>
+              <li>push onto the stack at <code>data[numItems]</code></li>
+              <li>pop off of the stack at <code>data[numItems-1]</code></li>
+            </ul>
+          </section>
+          <section>
+            <img src="stack-using-array.png" alt="stack array" />
+          </section>
+          <section>
+            <h2>Implementing a Stack</h2>
+            <p>Implementing a stack using a linked list</p>
+            <ul>
+              <li>Store the items in the stack in a linked list</li>
+              <li>
+                The top of the stack is the head node, the bottom of the stack
+                is the end of the list
+              </li>
+              <li><em>push</em> by adding to the front of the list</li>
+              <li><em>pop</em> by removing from the front of the list</li>
+            </ul>
+          </section>
+          <section>
+            <img src="stack-using-ll.png" alt="stack linked list" />
+          </section>
+        </section>
+        <section>
+          <h2>Leetcode Questions</h2>
+          <ul>
+            <li>
+              <a
+                href="https://leetcode.com/problems/valid-parentheses"
+                rel="noopener noreferrer"
+                target="_blank"
+                >https://leetcode.com/problems/valid-parentheses</a
+              >
+            </li>
+
+            <li>
+              <a
+                href="https://leetcode.com/problems/simplify-path/"
+                rel="noopener noreferrer"
+                target="_blank"
+                >https://leetcode.com/problems/simplify-path/</a
+              >
+            </li>
+
+            <li>
+              <a
+                href="https://leetcode.com/problems/evaluate-reverse-polish-notation/"
+                rel="noopener noreferrer"
+                target="_blank"
+                >https://leetcode.com/problems/evaluate-reverse-polish-notation/</a
+              >
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+        markdown: {
+          smartypants: true,
+        },
+      });
+    </script>
+  </body>
+</html>
